@@ -1,4 +1,4 @@
-package leetcode.Permutation;
+package Permutation;
 import java.util.*;
 
 public class Solution {
