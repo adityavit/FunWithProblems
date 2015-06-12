@@ -13,6 +13,6 @@ public class TestCaseRunner {
         TreeNode tree = TreeNode.createTree(elements);
         System.out.println("Tree created");
         Solution sol = new Solution();
-        System.out.println("Is Valid BST" + sol.isValidBST(tree));
+        System.out.println("Is Valid BST = " + sol.isValidBST(tree));
     }
 }
