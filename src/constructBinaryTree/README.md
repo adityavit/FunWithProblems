@@ -1,6 +1,6 @@
 https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 
-Constructs a binary Tree from preorder and inorder array.
+Constructs a binary Tree from preorder and inorder array. An important consideration is that there are no duplicates.
 
 The solution follows an algorithm described in the
 [leetcode](http://articles.leetcode.com/2011/04/construct-binary-tree-from-inorder-and-preorder-postorder-traversal.html)
@@ -28,6 +28,9 @@ return the root node tree.
 Complexity in general of this algorithm will nlogn, but in the worst case the complexity will O(n2) as tree can be skewed to the left and right.
 
 So you will have to search the whole inorder array for each element.
+
+But the O(n) complexity is coming from the linear search, what if we can reduce that using a Map with keys as the element to be search and value as
+the index. This will bring the complexity to O(n) overall, considering that hashmap takes O(1) to search the element.
 
 A similar idea has to be followed when postorder and inorder are given as the root element would be the last element in the postorder array.
 
