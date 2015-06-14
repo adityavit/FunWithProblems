@@ -13,12 +13,12 @@ public class Solution {
         //start second pointer and the second index;
         sell = 1;
         maxProfit = 0;
-//iterate over the elements;
+        //iterate over the elements;
         while(sell<prices.length) {
             diffSoFar = prices[sell] - prices[buy];
             if(diffSoFar > maxProfit)
                 maxProfit = diffSoFar;
-            //Found a price smaller than what is there in i
+            //Found a buy price smaller than what is there in current buy
             if(diffSoFar < 0)
                 buy = sell;
             sell++;

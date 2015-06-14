@@ -43,3 +43,7 @@ Basically the idea is very simple if there is an element which is smaller than t
 
  It is not hard to see that this is O(n) solution. Iteration is done just once over the array.
 
+
+There is another solution to this given here.I have not looked into but looks interesting.
+
+[geek4geeks](http://www.geeksforgeeks.org/maximum-difference-between-two-elements/)
