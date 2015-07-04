@@ -47,3 +47,48 @@ Basically the idea is very simple if there is an element which is smaller than t
 There is another solution to this given here.I have not looked into but looks interesting.
 
 [geek4geeks](http://www.geeksforgeeks.org/maximum-difference-between-two-elements/)
+
+
+Looking into the problem further and basically solving the problem [Part-2](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
+
+This problem can be visually seen as
+```
+                |
+    |           |
+    |       |   |         |
+  | |     | |   | |       |
+  | |     | |   | | |     |
+  | | |   | | | | | |  |  |
+| | | |   | | | | | |  |  |
+0 1 2 3 4 5 6 7 8 9 10 11 12
+
+```
+Here you can think bars as the stock price for example day 0 has a price of 1 and day 5 has a price of 4 and day 4 has zero price. :)
+
+Now this problem is basically finding minimum and maximum of these stock prices.
+So i start at day 0 and difference keeps on increasing my profit keeps on increasing. When i reach day 3 then my stock price doesn't increase
+any further, so basically i took the stock at day 0 and if i sold at day 2 getting a profit of 5. Then at day 4 stock decreases to 0 below that of
+day 1 then i can safely start a new transaction and go till 6 increasing in profit, If these would have been multiple transaction i can break here again.
+And from day 7 go up again till 8 or let day 4 go till 8, both will lead same profit.
+
+Basically the idea is to look for increasing sequences. In the case of atmost 1 you have to look for just one sequence which will be of maximum diff.
+In case of multiple transaction look for all the increasing sequences and add them up to get maximum profit. In case of two atmost look for the two maximum diff
+sequence and if you find a one greater than either of two replace the previous one.
+
+So finding at most one is finding diff of global minimum and global maximum.
+Finding multiple transaction is finding the sum of all diffs of local minimum and local maximum.
+
+```Java
+    public class Solution {
+        public int maxProfit(int[] prices) {
+            if(prices.length == 0 || prices.length == 1)
+                return 0;
+            int[] maxProfitResult = new int[prices.length];
+            maxProfitResult[prices.length - 1] = 0;
+            for(int i = prices.length - 2 ; i >= 0 ; i--) {
+                maxProfitResult[i] = Math.max(prices[i+1] - prices[i] + maxProfitResult[i+1], maxProfitResult[i+1]);
+            }
+            return maxProfitResult[0];
+        }
+    }
+```

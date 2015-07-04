@@ -38,4 +38,8 @@ public class Solution {
         }
         return maxProfit;
     }
+//
+//    public int maxProfitNTrasaction(int[] prices){
+//
+//    }
 }
