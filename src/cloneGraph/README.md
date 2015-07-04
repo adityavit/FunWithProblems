@@ -51,6 +51,24 @@ Important
 I made a mistake of deleting the nodes from the map at the end of the path Line:31, this will create the problem as listed above and resulting in a timeout on leetcode.
 So don't delete nodes from the map once visited, it keep track of all the nodes visited, and don't create them again.
 
+- BFS:
+
+So the BFS implementation uses a Map and Queue.
+
+The algorithm can be defined as.
+
+Clone the first Node and put it in the map with the label as the key.Also put that node in the queue.
+
+Do while the queue is empty.
+poll the first node in the queue let it be head.
+Take the corresponding cloned node of the head from the map.
+iterate over all the neighbors of the head
+if the neighbor is already present in the map get it and add to the neighbor of the cloned node of the head.
+else
+create a clone of the neighbor, add that to the neighbor of the cloned head also add the neighbor clone to the map.
+add the neighbor to the queue.
+
+Will have to look for the time complexity of both these methods.
 
 
 
