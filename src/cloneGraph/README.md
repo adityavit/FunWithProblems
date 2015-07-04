@@ -47,8 +47,8 @@ In the map store entries for the key as the label and value as the cloned node.
 When cloned node is created add it to the map and when you see it again, if the label is already present in the map, returned the reference of the node already created.
 
 Important
-=========
-I made a mistake of deleting the nodes from the map at the end of the path Line:31, this will create the problem as listed above.
+---------
+I made a mistake of deleting the nodes from the map at the end of the path Line:31, this will create the problem as listed above and resulting in a timeout on leetcode.
 So don't delete nodes from the map once visited, it keep track of all the nodes visited, and don't create them again.
 
 
