@@ -14,5 +14,14 @@ public class TestCaseRunner {
         // Max Profit Naive way.
         int maxProfitNaive = sol.maxProfitNaive(stockPrices);
         System.out.println("maxProfitNaive = " + maxProfitNaive);
+
+        int maxProfitNTransactions = sol.maxProfitNTransactions(stockPrices);
+        System.out.println("maxProfitNTransactions = " + maxProfitNTransactions);
+
+        int maxProfitStockProblemTwo = sol.maxProfitStockProblemTwo(stockPrices);
+        System.out.println("maxProfitNTransactions = " + maxProfitStockProblemTwo);
+
+        int maxProfitAtmost2Transactions = sol.maxProfitAtmost2Transactions(stockPrices);
+        System.out.println("maxProfitAtmost2Transactions = " + maxProfitAtmost2Transactions);
     }
 }

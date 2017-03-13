@@ -27,12 +27,76 @@ public class TreeNode {
         return node;
     }
 
-//    @Override
-//    public String toString() {
-//        List<Integer> elements = new ArrayList<Integer>();
-//        convertToList(this, elements, 0);
-//        return elements.toString();
-//    }
+    /**
+     * Creates a tree of this format.
+     *
+     *   3
+     *  / \
+     * 9  20
+     *   /  \
+     *  15   7
+     * @return
+     */
+    public static TreeNode zigZagProblemTree() {
+        List<Integer> elements = new ArrayList<Integer>();
+        elements.add(3);
+        elements.add(9);
+        elements.add(20);
+        elements.add(null);
+        elements.add(null);
+        elements.add(15);
+        elements.add(7);
+        return createTree(elements);
+    }
+
+    /**
+     * Creates a tree of this format.
+     *
+     *        3
+     *      /    \
+     *     9      20
+     *     / \    /  \
+     *   10  12 15   7
+     * @return
+     */
+    public static TreeNode zigZagProblemTree2() {
+        List<Integer> elements = new ArrayList<Integer>();
+        elements.add(3);
+        elements.add(9);
+        elements.add(20);
+        elements.add(10);
+        elements.add(12);
+        elements.add(15);
+        elements.add(7);
+        return createTree(elements);
+    }
+
+   @Override
+   public String toString() {
+       // List<Integer> elements = new ArrayList<Integer>();
+       // convertToList(this, elements, 0);
+       // return elements.toString();
+       return this.val.toString();
+   }
+
+    public static int getTreeHeight(TreeNode tree) {
+        if(tree == null)
+            return 0;
+        return getTreeHeightHelper(tree, 1);
+    }
+
+    private static int getTreeHeightHelper(TreeNode tree, int currentHeight) {
+        if (tree == null)
+            return currentHeight;
+        int leftTreeHeight = currentHeight, rightTreeHeight = currentHeight;
+        if (tree.left != null) {
+            leftTreeHeight = getTreeHeightHelper(tree.left, currentHeight) + 1;
+        }
+        if (tree.right != null) {
+            rightTreeHeight = getTreeHeightHelper(tree.right, currentHeight) + 1;
+        }
+        return Math.max(leftTreeHeight, rightTreeHeight);
+    }
 //
 //    private void convertToList(TreeNode root, List<Integer> elems, int index) {
 //        if(root == null) {

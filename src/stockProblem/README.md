@@ -69,7 +69,13 @@ Now this problem is basically finding minimum and maximum of these stock prices.
 So i start at day 0 and difference keeps on increasing my profit keeps on increasing. When i reach day 3 then my stock price doesn't increase
 any further, so basically i took the stock at day 0 and if i sold at day 2 getting a profit of 5. Then at day 4 stock decreases to 0 below that of
 day 1 then i can safely start a new transaction and go till 6 increasing in profit, If these would have been multiple transaction i can break here again.
-And from day 7 go up again till 8 or let day 4 go till 8, both will lead same profit.
+And from day 7 go up again till 8 <del>or let day 4 go till 8, both will lead same profit.</del>.
+
+Looking for increasing sequeunce is the correct approach. Basically you have to increase the sell value till the profit increases. When the profit decreases,
+then that would be the new value. The invariant in this problem is
+Lets say a, b, c, d are the four values in the array in that order. Such that a<b  && c<d
+So (b-a) + (d-c) > d-a
+which leads to b-c > 0 which says whenever b is greater than c then from there starts the new buy value till the profit keeps on increasing. If decreases switch again.
 
 Basically the idea is to look for increasing sequences. In the case of atmost 1 you have to look for just one sequence which will be of maximum diff.
 In case of multiple transaction look for all the increasing sequences and add them up to get maximum profit. In case of two atmost look for the two maximum diff

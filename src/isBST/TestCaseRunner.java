@@ -15,4 +15,5 @@ public class TestCaseRunner {
         Solution sol = new Solution();
         System.out.println("Is Valid BST = " + sol.isValidBST(tree));
     }
+
 }

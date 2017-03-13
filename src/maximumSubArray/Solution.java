@@ -9,7 +9,8 @@ public class Solution {
         int subArraySum = 0;
         int maxNegative = Integer.MIN_VALUE;
         for(int i=0; i< nums.length; i++) {
-            if(nums[i] >= 0) { //Handling case when all are Negative numbers. Basically put a flag which turns to 0 if there is a non-negative number else keeps on tracking the maximum negative number.
+            if(nums[i] >= 0) {
+            //Handling case when all are Negative numbers. Basically put a flag which turns to 0 if there is a non-negative number else keeps on tracking the maximum negative number.
                 maxNegative = 0;
             } else if(nums[i] < 0 && maxNegative !=0) {
                 maxNegative = Math.max(maxNegative, nums[i]);
