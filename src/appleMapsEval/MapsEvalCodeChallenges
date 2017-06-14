@@ -1,0 +1,89 @@
+var testInput = [ 'puerto rico', 'SAN FRANCISCO BAY AREA' ],
+    expectedOutput = [ 'otreuP ociR', 'naS ocsicnarF yaB aerA'];
+
+// Generate the expectedOutput list from the input
+function processInput(input) {
+  /*  code here */
+  var expectedOutput = [];
+  for(var i = 0; i < input.length; i++){
+    expectedOutput.push(formatString(input[i]));
+  }
+  return expectedOutput;
+}
+
+function formatString(inputStr) {
+  var words = inputStr.split(' ');
+  var returnList= [];
+  for(var wordI = 0;  wordI < words.length; wordI++) {
+    returnList.push(reverseStr(words[wordI]));
+  }
+  return returnList.join(' ');
+}
+
+function reverseStr(word){
+  var wordLowerCase = word.toLowerCase();
+  var wordChars = wordLowerCase.split('');
+  for ( var i = 0; i < wordChars.length/2; i++) {
+      swap(wordChars, i , wordChars.length - 1 - i);
+  }
+  wordChars[wordChars.length - 1] = wordChars[wordChars.length - 1].toUpperCase();
+  return wordChars.join('');
+}
+
+  function swap(wordList, startIndex, endI) {
+    var tmp = wordList[startIndex];
+    wordList[startIndex] = wordList[endI];
+    wordList[endI] = tmp;
+  }
+
+// Test Result
+var result = processInput(testInput) || [];
+console.log(result);
+
+for (var i = 0; i < result.length; i++) {
+  if (result[i]  !== expectedOutput[i]) {
+    console.warn('NOT QUITE - Result did not match expected output.');
+    break;
+  }
+  if (i === result.length - 1) {
+    console.log('PASSED - All  good!');
+  }
+}
+
+
+
+// Once is a function that creates a new version of the function
+// that can only be called one time. Future invocations will always
+// return the previous return value
+function once(fx) {
+  // Your code goes here
+  var onRet = null;
+  var oneCallCheck = false;
+  return function() {
+    if (oneCallCheck) {
+      return onRet;
+    }
+    oneCallCheck = true;
+    onRet = fx();
+    return onRet;
+  }
+}
+
+function test() {
+  console.log("This should only appear once");
+  return false;
+}
+
+var init = once(test);
+console.log(init());
+console.log(init());
+var init = once(test);
+
+
+/* Expected output:
+
+This should only appear once
+42
+42
+
+*/

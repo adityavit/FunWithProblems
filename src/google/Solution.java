@@ -15,36 +15,36 @@ public class Solution {
         public double runningAverage(double n);
     }
 
-    public class SmoothingImpl implements Smoothing {
-        //private Deque<Double> queue;
-        private Double[] store;
-        private int runningPtr;
-        private double runningSum = 0;
-        private int windowSizeLimit = 0;
-
-        public void windowSize(int windowSizeLimit) {
-            this.windowSizeLimit = windowSizeLimit;
-            store = new Double[windowSizeLimit];
-            runningPtr = 0;
-        }
+//    public class SmoothingImpl implements Smoothing {
+//        //private Deque<Double> queue;
+//        private Double[] store;
+//        private int runningPtr;
+//        private double runningSum = 0;
+//        private int windowSizeLimit = 0;
+//
+//        public void windowSize(int windowSizeLimit) {
+//            this.windowSizeLimit = windowSizeLimit;
+//            store = new Double[windowSizeLimit];
+//            runningPtr = 0;
+//        }
 
         // 1 [] -> [1] runningSum = 1 return = 1
 // 2 [1] -> [1, 2] runningSum = 3 return = 3/2
 // 3 [1,2] -> [1, 2, 3] runningSum = 6 return 6/3 = 2
 // 4 [1, 2, 3] -> [2, 3, 4]  runningSum = 9 return 9/3 = 3
-        public double runningAverage(double n) {
-            if (runningPtr == windowSizeLimit - 1) {
-                //Remove the first element in the queue.
-                runningPtr = 0;
-            }
-            if (store[runningPtr] != null ) {
-                runningSum -= store[runningPtr];
-            }
-            store[runningPtr] = n;
-            runningPtr++;
-            runningSum += n;
-            return runningSum/queue.size();
-        }
-    }
+//        public double runningAverage(double n) {
+//            if (runningPtr == windowSizeLimit - 1) {
+//                //Remove the first element in the queue.
+//                runningPtr = 0;
+//            }
+//            if (store[runningPtr] != null ) {
+//                runningSum -= store[runningPtr];
+//            }
+//            store[runningPtr] = n;
+//            runningPtr++;
+//            runningSum += n;
+//            return runningSum/queue.size();
+//        }
+//    }
 
 }
