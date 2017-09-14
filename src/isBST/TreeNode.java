@@ -15,7 +15,6 @@ public class TreeNode {
     public static TreeNode createTree(List<Integer> elements){
         return createTreeRecursive(elements, 0);
     }
-
     private static TreeNode createTreeRecursive(List<Integer> elements, int currentIndex) {
         if(currentIndex >= elements.size())
             return null;
@@ -96,6 +95,14 @@ public class TreeNode {
             rightTreeHeight = getTreeHeightHelper(tree.right, currentHeight) + 1;
         }
         return Math.max(leftTreeHeight, rightTreeHeight);
+    }
+
+    public TreeNode getLeft() {
+        return left;
+    }
+
+    public TreeNode getRight() {
+        return right;
     }
 //
 //    private void convertToList(TreeNode root, List<Integer> elems, int index) {
